@@ -5,7 +5,7 @@ O objetivo do projeto é apresentar os serviços contábeis oferecidos e facilit
 
 ---
 
-## 📋 Funcionalidades
+## <img src="icones/papel.svg" alt="Veivanco & Santos Contabilidade" width="50"/> Funcionalidades
 - Página inicial institucional  
 - Apresentação da empresa  
 - Lista de serviços contábeis  
