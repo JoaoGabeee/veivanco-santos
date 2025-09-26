@@ -205,3 +205,44 @@ footer {
 .carousel-control-next-icon {
   filter: invert(27%) sepia(100%) saturate(2000%) hue-rotate(195deg) brightness(95%) contrast(90%);
 }
+
+@media (max-width: 992px) {
+  header {
+    padding: 4rem 2rem;
+  }
+  header h1 { font-size: 2.2rem; }
+  .hero h1 { font-size: 2.4rem; }
+}
+
+@media (max-width: 768px) {
+  .col-md-4 {
+    width: 100%; 
+    margin-bottom: 20px;
+  }
+  header {
+    padding: 3rem 1rem;
+  }
+  header h1 { font-size: 2rem; }
+  .hero h1 { font-size: 2.2rem; }
+  header p, .hero p { font-size: 1rem; }
+  .btn-cta, .btn-outline-light {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 2rem 1rem;
+  }
+  header h1 { font-size: 1.6rem; }
+  .hero h1 { font-size: 1.8rem; }
+  .counter {
+    font-size: 2rem;
+  }
+  .whatsapp {
+    padding: 12px;
+    font-size: 1.2rem;
+  }
+}
