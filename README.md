@@ -1,4 +1,4 @@
-# 🌐 Veivanco & Santos Contabilidade
+# <img src="Logo/ÍCONE COLORIDO.png" alt="Veivanco & Santos Contabilidade" width="50"/> Veivanco & Santos Contabilidade
 
 Site institucional desenvolvido para o escritório **Veivanco & Santos Contabilidade**, localizado em Itaperuçu/PR.  
 O objetivo do projeto é apresentar os serviços contábeis oferecidos e facilitar o contato de clientes e parceiros.
