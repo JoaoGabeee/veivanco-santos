@@ -26,5 +26,4 @@ O objetivo do projeto é apresentar os serviços contábeis oferecidos e facilit
 1. Clone este repositório:
    ```bash
    git clone https://github.com/JoaoGabee/veivanco-santos.git
-2. Abra o arquivo inde.html
-  
+2. Abra o arquivo index.html
