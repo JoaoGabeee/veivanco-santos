@@ -25,4 +25,34 @@
     updateCount();
   });
 
-  
+document.addEventListener("DOMContentLoaded", function () {
+  const imagens = [
+    "imagens/contador1.png",
+    "imagens/contador2.png",
+    "imagens/contador3.png"
+  ];
+
+  const precache = [];
+  imagens.forEach(src => {
+    const img = new Image();
+    img.src = src;
+    precache.push(img);
+  });
+
+  let index = 0;
+  const imgElement = document.getElementById("img-rotativa");
+  const intervaloTroca = 10000;
+
+  setInterval(() => {
+    imgElement.style.opacity = 0;
+
+    setTimeout(() => {
+      index = (index + 1) % imagens.length;
+
+      imgElement.src = imagens[index];
+      imgElement.onload = () => {
+        imgElement.style.opacity = 1;
+      };
+    }, 1000); 
+  }, intervaloTroca);
+});

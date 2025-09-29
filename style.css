@@ -56,11 +56,17 @@ body {
 }
 
 @keyframes animacao {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
 }
 
-header, .hero {
+header,
+.hero {
   color: var(--cor-texto);
   text-align: center;
 }
@@ -70,14 +76,21 @@ header {
   padding: 6rem;
 }
 
-header h1, .hero h1 {
+header h1,
+.hero h1 {
   font-weight: 700;
 }
 
-header h1 { font-size: 2.8rem; }
-.hero h1 { font-size: 3rem; }
+header h1 {
+  font-size: 2.8rem;
+}
 
-header p, .hero p {
+.hero h1 {
+  font-size: 3rem;
+}
+
+header p,
+.hero p {
   font-size: 1.2rem;
   margin: 20px 0;
 }
@@ -110,7 +123,6 @@ section h2 {
   font-weight: 600;
   border-radius: 2rem;
   padding: 0.7rem 2rem;
-  animation: pulse 2s infinite;
 }
 
 .btn-cta:hover {
@@ -149,7 +161,9 @@ footer {
   text-decoration: underline;
 }
 
-.col-md-4 { width: 25%; }
+.col-md-4 {
+  width: 25%;
+}
 
 .whatsapp {
   position: fixed;
@@ -161,7 +175,7 @@ footer {
   border-radius: 50%;
   font-size: 1.5rem;
   text-decoration: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.8);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
   animation: pulse 1.8s infinite;
 }
 
@@ -196,9 +210,17 @@ footer {
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 .carousel-control-prev-icon,
@@ -210,22 +232,41 @@ footer {
   header {
     padding: 4rem 2rem;
   }
-  header h1 { font-size: 2.2rem; }
-  .hero h1 { font-size: 2.4rem; }
+
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
+  }
 }
 
 @media (max-width: 768px) {
   .col-md-4 {
-    width: 100%; 
+    width: 100%;
     margin-bottom: 20px;
   }
+
   header {
     padding: 3rem 1rem;
   }
-  header h1 { font-size: 2rem; }
-  .hero h1 { font-size: 2.2rem; }
-  header p, .hero p { font-size: 1rem; }
-  .btn-cta, .btn-outline-light {
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  header p,
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .btn-cta,
+  .btn-outline-light {
     width: 100%;
     text-align: center;
     padding: 1rem;
@@ -236,13 +277,38 @@ footer {
   header {
     padding: 2rem 1rem;
   }
-  header h1 { font-size: 1.6rem; }
-  .hero h1 { font-size: 1.8rem; }
+
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
   .counter {
     font-size: 2rem;
   }
+
   .whatsapp {
     padding: 12px;
     font-size: 1.2rem;
   }
+}
+
+.fade-bottom {
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: top;
+  -webkit-mask-size: 100% 100%;
+
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+  mask-repeat: no-repeat;
+  mask-position: top;
+  mask-size: 100% 100%;
+}
+
+.fade-img {
+  transition: opacity 1s ease-in-out;
+  opacity: 1;
 }
