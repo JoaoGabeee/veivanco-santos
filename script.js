@@ -9,12 +9,13 @@
     });
   });
 
-  const counters = document.querySelectorAll('.counter');
-  counters.forEach(counter => {
+  const numeradores = document.querySelectorAll('.counter');
+  numeradores.forEach(counter => {
     const updateCount = () => {
       const target = +counter.getAttribute('data-target');
       const count = +counter.innerText;
       const increment = target / 200;
+      
       if (count < target) {
         counter.innerText = Math.ceil(count + increment);
         setTimeout(updateCount, 15);
@@ -40,19 +41,19 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   let index = 0;
-  const imgElement = document.getElementById("img-rotativa");
-  const intervaloTroca = 10000;
+  const imagem = document.getElementById("img-rotativa");
+  const tempoTroca = 10000;
 
   setInterval(() => {
-    imgElement.style.opacity = 0;
+    imagem.style.opacity = 0;
 
     setTimeout(() => {
       index = (index + 1) % imagens.length;
 
-      imgElement.src = imagens[index];
-      imgElement.onload = () => {
-        imgElement.style.opacity = 1;
+      imagem.src = imagens[index];
+      imagem.onload = () => {
+        imagem.style.opacity = 1;
       };
     }, 1000); 
-  }, intervaloTroca);
+  }, tempoTroca);
 });
