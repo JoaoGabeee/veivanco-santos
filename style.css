@@ -333,3 +333,7 @@ footer a:hover {
   transition: opacity 1s ease-in-out;
   opacity: 1;
 }
+
+.navbar-toggler {
+  border: none;
+}
