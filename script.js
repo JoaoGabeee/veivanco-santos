@@ -9,22 +9,23 @@
     });
   });
 
-  const numeradores = document.querySelectorAll('.counter');
-  numeradores.forEach(counter => {
-    const updateCount = () => {
-      const target = +counter.getAttribute('data-target');
-      const count = +counter.innerText;
-      const increment = target / 200;
-      
-      if (count < target) {
-        counter.innerText = Math.ceil(count + increment);
-        setTimeout(updateCount, 15);
-      } else {
-        counter.innerText = target;
-      }
-    };
-    updateCount();
-  });
+const numeradores = document.querySelectorAll('.counter');
+numeradores.forEach(counter => {
+  const updateCount = () => {
+    const target = +counter.getAttribute('data-target');
+    const count = +counter.innerText.replace(/\D/g, "");
+    const increment = target / 200;
+    
+    if (count < target) {
+      const newValue = Math.ceil(count + increment);
+      counter.innerText = newValue.toLocaleString("pt-BR");
+      setTimeout(updateCount, 15);
+    } else {
+      counter.innerText = target.toLocaleString("pt-BR");
+    }
+  };
+  updateCount();
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   const imagens = [
