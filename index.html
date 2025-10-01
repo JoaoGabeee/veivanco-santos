@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Veivanco & Santos - Escritório de Contabilidade</title> <!-- Bootstrap -->
+  <title>Veivanco & Santos - Escritório de Contabilidade</title> 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="Logo/ÍCONE COLORIDO.png">
@@ -63,7 +63,7 @@
     </div>
   </section>
 
-  <section id="servicos" class="py-5 bg-light">
+  <section id="servicos" class="py-5">
     <div class="container">
       <h2>Nossos Serviços</h2>
       <div class="row g-4">
@@ -133,57 +133,43 @@
     </div>
   </section>
 
-  <section id="resultados" class="py-5 bg-light">
+  <section id="resultados" class="py-5">
     <div class="container text-center">
       <h2>Nossos Resultados</h2>
       <div class="row justify-content-center">
         <div class="col-md-3 col-6 mb-4">
-          <h3 class="counter impostos" data-target="100000">0</h3>
-          <p>Impostos gerados</p>
+          <h3 class="counter" data-target="100000">0</h3>
+          <p>Impostos gerados(em R$)</p>
         </div>
         <div class="col-md-3 col-6 mb-4">
-          <h3 class="counter folhas" data-target="500">0</h3>
+          <h3 class="counter" data-target="500">0</h3>
           <p>Folhas de pagamento processadas</p>
         </div>
-        <div class="col-md-3 col-6 mb-4">
+        <div class="col-md-3 col-12 mb-4">
           <h3 class="counter" data-target="10">0</h3>
           <p>Anos de experiência</p>
         </div>
       </div>
     </div>
   </section>
-
   <section id="contato" class="py-5 bg-light">
-  <div class="container">
-    <h2>Fale Conosco</h2>
-    <form  class="row g-3"
-      action="https://formsubmit.co/joao2008gabe@gmail.com"
-      method="POST">
-      
-      <div class="col-md-6">
-        <input type="text" class="form-control" name="nome" placeholder="Seu nome" required>
-      </div>
-
-      <div class="col-md-6">
-        <input type="email" class="form-control" name="email" placeholder="Seu e-mail" required>
-      </div>
-
-      <div class="col-12">
-        <textarea class="form-control" name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
-      </div>
-
-      <div class="col-12 text-center">
-        <button type="submit" class="btn btn-cta">Enviar Mensagem</button>
-      </div>
-    </form>
-  </div>
-</section>
+    <div class="container">
+      <h2>Fale Conosco</h2>
+      <form class="row g-3">
+        <div class="col-md-6"> <input type="text" class="form-control" placeholder="Seu nome" required> </div>
+        <div class="col-md-6"> <input type="email" class="form-control" placeholder="Seu e-mail" required> </div>
+        <div class="col-12"> <textarea class="form-control" rows="5" placeholder="Sua mensagem" required></textarea>
+        </div>
+        <div class="col-12 text-center"> <button type="submit" class="btn btn-cta">Enviar Mensagem</button> </div>
+      </form>
+    </div>
+  </section>
   
 <footer>
   <div class="container">
     <div class="footer-top row">
       <div class="col-md-4 mb-3">
-        <h5>Veivanco & Santos</h5>
+        <h3>Veivanco & Santos</h3>
         <p>Soluções contábeis completas para o crescimento da sua empresa.</p>
       </div>
 
@@ -222,7 +208,7 @@
   </div>
 </footer>
 
-  <a href="https://wa.me/5541996903703" class="whatsapp" target="_blank">
+  <a href="https://wa.me/5541996903703?text=Olá%2C%20gostaria%20de%20saber%20sobre%20os%20serviços%20de%20contabilidade!" class="whatsapp" target="_blank">
     <img src="icones/whatsapp.svg" alt="WhatsApp" width="40" height="40">
   </a>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

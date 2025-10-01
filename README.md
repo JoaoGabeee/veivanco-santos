@@ -5,7 +5,7 @@ O objetivo do projeto é apresentar os serviços contábeis oferecidos e facilit
 
 ---
 
-## 📋 Funcionalidades
+## Funcionalidades
 - Página inicial institucional  
 - Apresentação da empresa  
 - Lista de serviços contábeis  
@@ -14,7 +14,7 @@ O objetivo do projeto é apresentar os serviços contábeis oferecidos e facilit
 
 ---
 
-## 🛠️ Tecnologias utilizadas
+## Tecnologias utilizadas
 - **HTML5**  
 - **CSS3**  
 - **JavaScript**  
@@ -22,7 +22,7 @@ O objetivo do projeto é apresentar os serviços contábeis oferecidos e facilit
   
 ---
 
-## 🚀 Como executar
+## Como executar
 1. Clone este repositório:
    ```bash
    git clone https://github.com/JoaoGabee/veivanco-santos.git
