@@ -41,6 +41,7 @@ numeradores.forEach(counter => {
 });
 
 
+
 document.addEventListener("DOMContentLoaded", function () {
   const imagens = [
     "imagens/contador1.png",
