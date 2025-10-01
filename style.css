@@ -338,3 +338,11 @@ footer a:hover {
   border: none;
   
 }
+
+.counter.impostos::before {
+  content: "R$ ";
+}
+
+.counter.folhas::before {
+  content: "+";
+}
