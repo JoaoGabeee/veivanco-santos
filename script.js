@@ -10,22 +10,37 @@
   });
 
 const numeradores = document.querySelectorAll('.counter');
-numeradores.forEach(counter => {
-  const updateCount = () => {
-    const target = +counter.getAttribute('data-target');
-    const count = +counter.innerText.replace(/\D/g, "");
-    const increment = target / 200;
-    
-    if (count < target) {
-      const newValue = Math.ceil(count + increment);
-      counter.innerText = newValue.toLocaleString("pt-BR");
-      setTimeout(updateCount, 15);
-    } else {
-      counter.innerText = target.toLocaleString("pt-BR");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const counter = entry.target;
+
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText.replace(/\D/g, "");
+        const increment = target / 200;
+
+        if (count < target) {
+          const newValue = Math.ceil(count + increment);
+          counter.innerText = newValue.toLocaleString("pt-BR");
+          setTimeout(updateCount, 15);
+        } else {
+          counter.innerText = target.toLocaleString("pt-BR");
+        }
+      };
+
+      updateCount();
+
+      observer.unobserve(counter);
     }
-  };
-  updateCount();
+  });
+}, { threshold: 0.5 });
+
+numeradores.forEach(counter => {
+  observer.observe(counter);
 });
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const imagens = [
