@@ -118,3 +118,11 @@ function fecharModal(overlay, modal) {
 
   setTimeout(() => overlay.remove(), 400);
 }
+
+//hamburguer:X
+const btn = document.getElementById('menu-btn');
+const menuIcon = btn.querySelector('.menu-icon');
+
+btn.addEventListener('click', () => {
+  menuIcon.classList.toggle('active');
+});
