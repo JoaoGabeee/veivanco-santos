@@ -47,7 +47,8 @@ body {
   transition: opacity 0.5s;
 }
 
-.navbar .nav-link:hover::after {
+.navbar .nav-link:hover::after,
+.navbar .nav-link:focus {
   opacity: 1;
   animation: animacao 2s linear infinite;
 }
@@ -89,19 +90,23 @@ header p,
   justify-content: center;
 }
 
+.card{
+  transition: transform 0.3s;
+}
+
+.card.servicos:hover {
+  transform: translateY(-0.5rem);
+}
+
+.card.depoimentos:hover {
+  transform: scale(0.99);
+}
+
 section h2 {
   color: var(--cor-primaria);
   font-weight: 600;
   margin-bottom: 40px;
   text-align: center;
-}
-
-.card {
-  transition: transform 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-0.5rem);
 }
 
 .btn-cta {

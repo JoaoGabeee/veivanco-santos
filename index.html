@@ -68,28 +68,28 @@
       <h2>Nossos Serviços</h2>
       <div class="row g-4">
         <div class="col-md-3">
-          <div class="card text-center p-3"> <img src="icones/empresa.svg" class="mx-auto mb-3" alt="Abertura"
+          <div class="card servicos text-center p-3"> <img src="icones/empresa.svg" class="mx-auto mb-3" alt="Abertura"
               style="height:50px;">
             <h5>Abertura de Empresas</h5>
             <p>Formalização rápida e segura do seu negócio.</p>
           </div>
         </div>
         <div class="col-md-3">
-          <div class="card text-center p-3"> <img src="icones/gráfico.svg" class="mx-auto mb-3" alt="Fiscal"
+          <div class="card servicos text-center p-3"> <img src="icones/gráfico.svg" class="mx-auto mb-3" alt="Fiscal"
               style="height:50px;">
             <h5>Gestão Fiscal</h5>
             <p>Organização tributária e conformidade legal.</p>
           </div>
         </div>
         <div class="col-md-3">
-          <div class="card text-center p-3"> <img src="icones/escrita.svg" class="mx-auto mb-3" alt="Folha"
+          <div class="card servicos text-center p-3"> <img src="icones/escrita.svg" class="mx-auto mb-3" alt="Folha"
               style="height:50px;">
             <h5>Folha de Pagamento</h5>
             <p>Administração completa da equipe e encargos.</p>
           </div>
         </div>
         <div class="col-md-3">
-          <div class="card text-center p-3"> <img src="icones/papel.svg" class="mx-auto mb-3" alt="Consultoria"
+          <div class="card servicos text-center p-3"> <img src="icones/papel.svg" class="mx-auto mb-3" alt="Consultoria"
               style="height:50px;">
             <h5>Consultoria Financeira</h5>
             <p>Planejamento para otimizar resultados financeiros.</p>
@@ -105,19 +105,19 @@
       <div id="carouselDepoimentos" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner text-center">
           <div class="carousel-item active">
-            <div class="card p-4 mx-auto" style="max-width:600px;">
+            <div class="card depoimentos p-4 mx-auto" style="max-width:600px;">
               <p>"A Veivanco & Santos ajudou muito a organizar a parte fiscal da nossa empresa!"</p>
               <h6 class="mt-3">— João Veivanco, JMV</h6>
             </div>
           </div>
           <div class="carousel-item">
-            <div class="card p-4 mx-auto" style="max-width:600px;">
+            <div class="card depoimentos p-4 mx-auto" style="max-width:600px;">
               <p>"Equipe extremamente atenciosa e competente. Recomendo de olhos fechados."</p>
               <h6 class="mt-3">— Ismael, TSA</h6>
             </div>
           </div>
           <div class="carousel-item">
-            <div class="card p-4 mx-auto" style="max-width:600px;">
+            <div class="card depoimentos p-4 mx-auto" style="max-width:600px;">
               <p>"Graças à consultoria financeira, conseguimos reduzir custos e aumentar a margem de lucro."</p>
               <h6 class="mt-3">— Samoel, SV</h6>
             </div>
@@ -152,18 +152,26 @@
       </div>
     </div>
   </section>
+
   <section id="contato" class="py-5 bg-light">
-    <div class="container">
-      <h2>Fale Conosco</h2>
-      <form class="row g-3">
-        <div class="col-md-6"> <input type="text" class="form-control" placeholder="Seu nome" required> </div>
-        <div class="col-md-6"> <input type="email" class="form-control" placeholder="Seu e-mail" required> </div>
-        <div class="col-12"> <textarea class="form-control" rows="5" placeholder="Sua mensagem" required></textarea>
-        </div>
-        <div class="col-12 text-center"> <button type="submit" class="btn btn-cta">Enviar Mensagem</button> </div>
-      </form>
-    </div>
-  </section>
+  <div class="container">
+    <h2>Fale Conosco</h2>
+    <form action="https://formspree.io/f/mqayloea" method="POST" class="row g-3">
+      <div class="col-md-6">
+        <input type="text" name="nome" class="form-control" placeholder="Seu nome" required>
+      </div>
+      <div class="col-md-6">
+        <input type="email" name="email" class="form-control" placeholder="Seu e-mail" required>
+      </div>
+      <div class="col-12">
+        <textarea name="mensagem" class="form-control" rows="5" placeholder="Sua mensagem" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></textarea>
+      </div>
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-cta">Enviar Mensagem</button>
+      </div>
+    </form>
+  </div>
+</section>
   
 <footer>
   <div class="container">

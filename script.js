@@ -1,13 +1,13 @@
- const reveals = document.querySelectorAll('.reveal');
-  window.addEventListener('scroll', () => {
-    reveals.forEach(el => {
-      const windowHeight = window.innerHeight;
-      const elementTop = el.getBoundingClientRect().top;
-      if (elementTop < windowHeight - 50) {
-        el.classList.add('active');
-      }
-    });
+const reveals = document.querySelectorAll('.reveal');
+window.addEventListener('scroll', () => {
+  reveals.forEach(el => {
+    const windowHeight = window.innerHeight;
+    const elementTop = el.getBoundingClientRect().top;
+    if (elementTop < windowHeight - 50) {
+      el.classList.add('active');
+    }
   });
+});
 
 const numeradores = document.querySelectorAll('.counter');
 const observer = new IntersectionObserver(entries => {
@@ -70,6 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
       imagem.onload = () => {
         imagem.style.opacity = 1;
       };
-    }, 1000); 
+    }, 1000);
   }, tempoTroca);
 });
