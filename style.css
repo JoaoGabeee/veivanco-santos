@@ -109,11 +109,17 @@ section h2 {
   text-align: center;
 }
 
+.btn {
+    margin-top: 10px;
+    width: 15rem;
+    font-size: 1rem;
+    border-radius: 2rem;
+}
+
 .btn-cta {
   background: var(--cor-secundaria);
   color: var(--cor-primaria);
   font-weight: 600;
-  border-radius: 2rem;
   padding: 0.7rem 2rem;
 }
 
@@ -125,7 +131,6 @@ section h2 {
 .btn-outline-light {
   border: 2px solid var(--cor-texto);
   color: var(--cor-texto);
-  border-radius: 2rem;
   padding: 0.7rem 2rem;
   font-weight: 600;
   transition: all 0.3s ease;
@@ -280,7 +285,7 @@ footer a:hover {
   header h1 { font-size: 2rem; }
   .hero h1 { font-size: 2.2rem; }
   header p, .hero p { font-size: 1rem; }
-  .btn-cta, .btn-outline-light { width: 100%; text-align: center; padding: 1rem; }
+  .btn { width: 100%; text-align: center; padding: 1rem; }
 }
 
 @media (max-width: 480px) {
@@ -448,10 +453,4 @@ footer a:hover {
  .form-control:focus {
   border-color: var(--cor-secundaria);
   box-shadow: 0 0 0 0.2rem rgba(19, 226, 136, 0.25);
-}
-
- .btn-cta {
-  margin-top: 10px;
-  width: 50%;
-  font-size: 1rem;
 }
