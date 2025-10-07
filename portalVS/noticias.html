@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notícias - Veivanco & Santos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styleNoticias.css" />
+  <link rel="icon" type="image/png" href="../Logo/ÍCONE COLORIDO.png" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="../index.html">
+        <img src="../Logo/ÍCONE BRANCO.png" alt="Logo">
+        Veivanco & Santos <span class="d-none d-lg-inline">
+          - Contabilidade
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="menu-btn">
+        <div class="menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="../index.html#sobre">Sobre</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li> -->
+          <li class="nav-item"><a class="nav-link" href="../index.html#depoimentos">Depoimentos</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#resultados">Resultados</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#contato">Contato</a></li>
+          <li class="nav-item"><a class="nav-link active" href="../faq.html">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<header class="hero d-flex align-items-center py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 d-flex flex-column justify-content-center text-center text-md-start">
+        <h1>Últimas Notícias</h1>
+        <p class="lead">Atualizações automáticas do mundo contábil e empresarial.</p>
+      </div>
+
+      <div class="col-md-6 mt-3 mt-md-0">
+        <div id="noticia-principal" class="card shadow-sm"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="noticias" class="py-5">
+  <div class="container">
+    <div id="feed" class="row g-4"></div>
+  </div>
+</section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top row">
+        <div class="col-md-4 mb-3">
+          <h3>Veivanco & Santos</h3>
+          <p>Soluções contábeis completas para o crescimento da sua empresa.</p>
+        </div>
+
+        <div class="col-md-4 mb-3 footer-links">
+          <h5>Links Rápidos</h5>
+          <ul>
+            <li><a href="../index.html#sobre">Sobre</a></li>
+            <li><a href="../index.html#servicos">Serviços</a></li>
+            <li><a href="../index.html#depoimentos">Depoimentos</a></li>
+            <li><a href="../index.html#resultados">Resultados</a></li>
+            <li><a href="../index.html#contato">Contato</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4 mb-3 footer-contact">
+          <h5>Contato</h5>
+          <p><img src="../icones/local.svg" alt="local" width="25"><a href="https://maps.app.goo.gl/6SRZVDsCY4pyYUc5A"
+              class="links" target="_blank">Rua João Maltaca, 160 - Itaperuçu/PR</a></p>
+          <p><img src="../icones/telefone.svg" alt="telefone" width="25">(41) 99690-3703</p>
+          <p><img src="../icones/email.svg" alt="email" width="25"><a
+              href="mailto:contato@contvs.com.br">contato@contvs.com.br</a></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom text-center mt-3">
+        <div class="footer-social">
+          <a href="https://www.facebook.com/share/1Cb5D1zmeh/?mibextid=wwXIfr" target="_blank">
+            <img src="../icones/facebook.svg" alt="Facebook" width="25">
+          </a>
+          <a href="https://www.instagram.com/vscontabilidade1?igsh=MTQzbW04dnA5bDJidw==" target="_blank">
+            <img src="../icones/instagram.svg" alt="Instagram" width="25">
+          </a>
+        </div>
+        <hr style="border-color: rgba(255,255,255,0.2); margin: 1rem 0;">
+        <p>&copy; 2025 Veivanco & Santos - Contabilidade | Todos os direitos reservados</p>
+        <p>Feito por: <a href="https://github.com/JoaoGabeee" target="_blank">github.com/JoaoGabeee</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="rss.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>

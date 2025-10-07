@@ -1,9 +1,9 @@
 //troca de imagens
 document.addEventListener("DOMContentLoaded", function () {
   const imagens = [
-    "imagens/contador1.png",
-    "imagens/contador2.png",
-    "imagens/contador3.png"
+    "../imagens/contador1.png",
+    "../imagens/contador2.png",
+    "../imagens/contador3.png"
   ];
 
   const precache = [];
@@ -64,7 +64,7 @@ numeradores.forEach(counter => {
   observer.observe(counter);
 });
 
-//formularios
+
 async function enviarFormulario(e) {
   e.preventDefault();
   const formulario = e.target;

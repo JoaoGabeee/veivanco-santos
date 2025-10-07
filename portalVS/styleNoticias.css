@@ -1,0 +1,49 @@
+@import url("../style.css");
+
+#noticia-principal {
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+#noticia-principal:hover {
+  transform: translateY(-5px);
+}
+
+#noticia-principal img.card-img-top {
+  width: 100%;
+  height: 45vh;
+  object-fit: cover;
+}
+
+#noticia-principal .card-body {
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto);
+  padding: 1rem;
+}
+
+#noticia-principal .card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+#noticia-principal .card-text {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+#noticia-principal .btn-cta:hover {
+  background-color: #0fbd71;
+  color: var(--cor-texto);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 220px; 
+  object-fit: cover; 
+  object-position: center; 
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  
+}
