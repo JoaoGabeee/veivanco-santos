@@ -360,7 +360,6 @@ footer a:hover {
   background: var(--cor-secundaria-hover);
 }
 
-/* === Animações === */
 @keyframes modalFadeIn {
   0% {
     opacity: 0;
@@ -382,7 +381,6 @@ footer a:hover {
     transform: scale(0.8);
   }
 }
-
 
 .menu-icon {
   width: 30px;
@@ -412,4 +410,48 @@ footer a:hover {
 
 .menu-icon.active span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/*FAQ*/
+.accordion-button {
+  font-weight: 600;
+  color: var(--cor-primaria);
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-primaria);
+}
+
+.accordion-body {
+  background: var(--cor-gradiente-3);
+}
+
+#duvidas h2 {
+  color: var(--cor-primaria);
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+#duvidas p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+ .form-control {
+  border-radius: 0.75rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+ .form-control:focus {
+  border-color: var(--cor-secundaria);
+  box-shadow: 0 0 0 0.2rem rgba(19, 226, 136, 0.25);
+}
+
+ .btn-cta {
+  margin-top: 10px;
+  width: 50%;
+  font-size: 1rem;
 }

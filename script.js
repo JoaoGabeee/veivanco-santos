@@ -64,8 +64,8 @@ numeradores.forEach(counter => {
   observer.observe(counter);
 });
 
-//formulario
-document.getElementById("formularioContato").addEventListener("submit", async function(e) {
+//formularios
+async function enviarFormulario(e) {
   e.preventDefault();
   const formulario = e.target;
   const data = new FormData(formulario);
@@ -86,7 +86,13 @@ document.getElementById("formularioContato").addEventListener("submit", async fu
   } catch (error) {
     mostrarModal("⚠️ Erro de conexão. Verifique sua internet.", "erro");
   }
-});
+}
+
+const formContato = document.getElementById("formularioContato");
+if (formContato) formContato.addEventListener("submit", enviarFormulario);
+
+const formDuvidas = document.querySelector("#duvidas form");
+if (formDuvidas) formDuvidas.addEventListener("submit", enviarFormulario);
 
 function mostrarModal(texto, tipo = "sucesso") {
   const overlay = document.createElement("div");
@@ -119,7 +125,7 @@ function fecharModal(overlay, modal) {
   setTimeout(() => overlay.remove(), 400);
 }
 
-//hamburguer:X
+//Botão do menu hamburguer 
 const btn = document.getElementById('menu-btn');
 const menuIcon = btn.querySelector('.menu-icon');
 
