@@ -8,7 +8,6 @@ const feeds = [
   "https://www.cmaiscontabilidade.com.br/RSS/Not%C3%ADcias"
 ];
 
-
 const imagensLocais = [
   "imagens/imagem1.jpeg",
   "imagens/imagem2.jpeg",
@@ -100,39 +99,71 @@ function mostrarNoticiaPrincipal(item) {
   `;
 }
 
-function renderizarNoticias() {
-  const noticias = todasNoticias.slice(noticiasExibidas, noticiasExibidas + noticiasPorPagina);
-
-  if (noticias.length === 0) return;
-  if (noticiasExibidas === 0) feedContainer.innerHTML = "";
-
-  noticias.forEach((item) => {
-    const imagem = extrairImagem(item);
-    const descricao = (item.description || item.content || "").replace(/<[^>]+>/g, '').slice(0, 120) + '...';
-
-    const card = document.createElement("div");
-    card.className = "col-md-4 mb-4 fade-in";
-    card.innerHTML = `
-      <div class="card h-100 shadow-sm">
-        <img src="${imagem}" class="card-img-top" alt="${item.title}" 
-             onerror="this.src='${imagemAleatoriaNova()}';">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">${item.title}</h5>
-          <p class="card-text">${descricao}</p>
-          <a href="${item.link}" target="_blank" class="btn btn-cta mt-auto">Ler mais</a>
-        </div>
+function addCard(item) {
+  const imagem = extrairImagem(item);
+  const descricao = (item.description || item.content || '').replace(/<[^>]+>/g, '').slice(0, 120) + '...';
+  const card = document.createElement('div');
+  card.className = 'col-md-4 mb-4 fade-in';
+  card.innerHTML = `<div class="card h-100 shadow-sm">
+      <img src="${imagem}" class="card-img-top" alt="${item.title}" onerror="this.src='${imagemAleatoriaNova()}';">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">${item.title}</h5>
+        <p class="card-text">${descricao}</p>
+        <a href="${item.link}" target="_blank" class="btn btn-cta mt-auto">Ler mais</a>
       </div>
-    `;
-    feedContainer.appendChild(card);
-  });
+    </div>`;
+  feedContainer.appendChild(card);
+}
 
-  noticiasExibidas += noticiasPorPagina;
+function renderizarNoticias(termoBusca = "") {
+  feedContainer.innerHTML = "";
+  removerBotaoLerMais();
+
+  if (termoBusca) {
+    // Busca ativa: mostra resultados e "outras notícias" não relacionadas
+    const termo = termoBusca.trim().toLowerCase();
+    const noticiasFiltradas = todasNoticias.filter(noticia => {
+      const titulo = (noticia.title || '').toLowerCase();
+      const descricao = (noticia.description || noticia.content || '').toLowerCase();
+      return titulo.includes(termo) || descricao.includes(termo);
+    });
+    const outrasNoticias = todasNoticias.filter(noticia => {
+      const titulo = (noticia.title || '').toLowerCase();
+      const descricao = (noticia.description || noticia.content || '').toLowerCase();
+      return !titulo.includes(termo) && !descricao.includes(termo);
+    });
+
+    // Resultados da busca
+    if (noticiasFiltradas.length > 0) {
+      noticiasFiltradas.forEach(addCard);
+    } else {
+      const aviso = document.createElement('p');
+      aviso.className = 'text-center text-muted';
+      aviso.textContent = 'Nenhuma notícia encontrada para sua busca.';
+      feedContainer.appendChild(aviso);
+    }
+
+    // Outras notícias (apenas se houver)
+    if (outrasNoticias.length > 0) {
+      const titulo = document.createElement('h3');
+      titulo.textContent = 'Outras notícias';
+      titulo.className = 'mb-4 mt-5';
+      feedContainer.appendChild(titulo);
+      outrasNoticias.forEach(addCard);
+    }
+    // Não mostra botão "ler mais" nem paginação na busca
+    return;
+  }
+
+  // Exibição padrão: paginação
+  const noticias = todasNoticias.slice(noticiasExibidas, noticiasExibidas + noticiasPorPagina);
+  noticias.forEach(addCard);
+  noticiasExibidas += noticias.length;
   adicionarBotaoLerMais();
 }
 
 function adicionarBotaoLerMais() {
-  const botaoExistente = document.getElementById("btn-ler-mais");
-  if (botaoExistente) botaoExistente.remove();
+  removerBotaoLerMais();
 
   if (noticiasExibidas < todasNoticias.length) {
     const botaoContainer = document.createElement("div");
@@ -151,4 +182,17 @@ function adicionarBotaoLerMais() {
   }
 }
 
-carregarNoticias();
+function removerBotaoLerMais() {
+  const botaoExistente = document.getElementById("btn-ler-mais");
+  if (botaoExistente) botaoExistente.remove();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const inputBusca = document.getElementById('busca-noticia');
+  if (inputBusca) {
+    inputBusca.addEventListener('input', function () {
+      renderizarNoticias(this.value.trim().toLowerCase());
+    });
+  }
+  carregarNoticias();
+});
