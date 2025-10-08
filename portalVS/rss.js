@@ -34,7 +34,8 @@ function imagemAleatoriaNova() {
 
 let todasNoticias = [];
 let noticiasExibidas = 0;
-const noticiasPorPagina = 15;
+const noticiasPorPagina = 12;
+let estaBuscando = false;
 
 async function carregarNoticias() {
   feedContainer.innerHTML = `
@@ -66,7 +67,7 @@ async function carregarNoticias() {
 
   const noticiaPrincipal = noticias.shift();
   todasNoticias = noticias;
-
+  noticiasExibidas = 0;
   mostrarNoticiaPrincipal(noticiaPrincipal);
   renderizarNoticias();
 }
@@ -119,9 +120,11 @@ function renderizarNoticias(termoBusca = "") {
   feedContainer.innerHTML = "";
   removerBotaoLerMais();
 
-  if (termoBusca) {
+  const termo = termoBusca.trim().toLowerCase();
+  estaBuscando = !!termo;
+
+  if (estaBuscando) {
     // Busca ativa: mostra resultados e "outras notícias" não relacionadas
-    const termo = termoBusca.trim().toLowerCase();
     const noticiasFiltradas = todasNoticias.filter(noticia => {
       const titulo = (noticia.title || '').toLowerCase();
       const descricao = (noticia.description || noticia.content || '').toLowerCase();
@@ -165,7 +168,7 @@ function renderizarNoticias(termoBusca = "") {
 function adicionarBotaoLerMais() {
   removerBotaoLerMais();
 
-  if (noticiasExibidas < todasNoticias.length) {
+  if (!estaBuscando && noticiasExibidas < todasNoticias.length) {
     const botaoContainer = document.createElement("div");
     botaoContainer.className = "text-center mt-4 fade-in";
     botaoContainer.id = "btn-container";
@@ -177,7 +180,10 @@ function adicionarBotaoLerMais() {
     feedContainer.appendChild(botaoContainer);
 
     document.getElementById("btn-ler-mais").addEventListener("click", () => {
-      renderizarNoticias();
+      const noticias = todasNoticias.slice(noticiasExibidas, noticiasExibidas + noticiasPorPagina);
+      noticias.forEach(addCard);
+      noticiasExibidas += noticias.length;
+      adicionarBotaoLerMais();
     });
   }
 }
@@ -191,8 +197,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const inputBusca = document.getElementById('busca-noticia');
   if (inputBusca) {
     inputBusca.addEventListener('input', function () {
+      // Se o campo estiver vazio, resetar paginação
+      if (!this.value.trim()) {
+        noticiasExibidas = 0;
+      }
       renderizarNoticias(this.value.trim().toLowerCase());
     });
   }
-  carregarNoticias();
 });
+carregarNoticias();
