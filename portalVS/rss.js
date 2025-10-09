@@ -2,9 +2,10 @@ const feedContainer = document.getElementById("feed");
 const principalContainer = document.getElementById("noticia-principal");
 
 const feeds = [
-  "https://www.valor.com.br/financas/rss",
-  "https://www.contabeis.com.br/rss/noticias/",
-  "https://contabilidadeagora.webnode.page/rss/noticias.xml",
+  "https://g1.globo.com/rss/g1/brasil/",
+  "https://g1.globo.com/rss/g1/politica/",
+  "https://g1.globo.com/rss/g1/economia/",
+  "https://g1.globo.com/rss/g1/tecnologia/",
   "https://www.cmaiscontabilidade.com.br/RSS/Not%C3%ADcias"
 ];
 
@@ -102,19 +103,81 @@ function mostrarNoticiaPrincipal(item) {
 
 function addCard(item) {
   const imagem = extrairImagem(item);
-  const descricao = (item.description || item.content || '').replace(/<[^>]+>/g, '').slice(0, 120) + '...';
+  const descricaoCurta = (item.description || item.content || '').replace(/<[^>]+>/g, '').slice(0, 120) + '...';
+  const descricaoCompleta = (item.description || item.content || '').replace(/<[^>]+>/g, '');
+
   const card = document.createElement('div');
-  card.className = 'col-md-4 mb-4 fade-in';
-  card.innerHTML = `<div class="card h-100 shadow-sm">
+  card.className = 'col-md-4 mb-4 fade-in noticia-card';
+  card.innerHTML = `
+    <div class="card h-100 shadow-sm">
       <img src="${imagem}" class="card-img-top" alt="${item.title}" onerror="this.src='${imagemAleatoriaNova()}';">
       <div class="card-body d-flex flex-column">
         <h5 class="card-title">${item.title}</h5>
-        <p class="card-text">${descricao}</p>
-        <a href="${item.link}" target="_blank" class="btn btn-cta mt-auto">Ler mais</a>
+        <p class="card-text" style="max-height: 4.5em; overflow: hidden;">${descricaoCurta}</p>
+        <a href="#" class="btn btn-cta mt-auto btn-expandir">Ler mais</a>
       </div>
-    </div>`;
+    </div>
+  `;
+
+  const btnExpandir = card.querySelector('.btn-expandir');
+  const texto = card.querySelector('.card-text');
+
+  btnExpandir.addEventListener('click', (e) => {
+    e.preventDefault();
+    toggleExpandirSuave(card, texto, descricaoCurta, descricaoCompleta, btnExpandir, item.link);
+  });
+
   feedContainer.appendChild(card);
 }
+
+function toggleExpandirSuave(card, texto, descCurta, descCompleta, botao, linkOriginal) {
+  const expandido = card.classList.contains('expandido');
+
+  // Colapsa todos os outros
+  document.querySelectorAll('.noticia-card.expandido').forEach(c => {
+    c.classList.remove('expandido');
+    c.style.flex = '';
+    const t = c.querySelector('.card-text');
+    t.style.maxHeight = '4.5em';
+    const b = c.querySelector('.btn-expandir');
+    if (b) b.textContent = 'Ler mais';
+
+    // Remove botão da fonte original se existir
+    const btnFonte = c.querySelector('.btn-fonte-original');
+    if (btnFonte) btnFonte.remove();
+  });
+
+  if (!expandido) {
+    card.classList.add('expandido');
+    card.style.flex = '0 0 100%';
+    texto.textContent = descCompleta;
+    texto.style.transition = 'max-height 0.5s ease';
+    texto.style.maxHeight = texto.scrollHeight + 'px';
+    if (botao) botao.textContent = 'Ler menos';
+
+    // Criar botão da fonte original
+    const btnFonte = document.createElement('a');
+    btnFonte.href = linkOriginal;
+    btnFonte.target = '_blank';
+    btnFonte.textContent = 'Ver fonte original';
+    btnFonte.className = 'btn btn-secondary mt-2 btn-fonte-original';
+    // Adiciona depois do botão expandir
+    botao.parentNode.appendChild(btnFonte);
+
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else {
+    card.classList.remove('expandido');
+    card.style.flex = '';
+    texto.textContent = descCurta;
+    texto.style.maxHeight = '4.5em';
+    if (botao) botao.textContent = 'Ler mais';
+
+    // Remove botão da fonte original
+    const btnFonte = card.querySelector('.btn-fonte-original');
+    if (btnFonte) btnFonte.remove();
+  }
+}
+
 
 function renderizarNoticias(termoBusca = "") {
   feedContainer.innerHTML = "";
