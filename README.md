@@ -31,6 +31,6 @@ O objetivo do projeto é apresentar os serviços contábeis oferecidos e facilit
 ## OU
 1. Copiar a url
    ```bash
-   https://joaogabeee.github.io/veivanco-santos/
+   https://joaogabeee.github.io/veivanco-santos/principal/index.html
 3. Colar no navegador
 
