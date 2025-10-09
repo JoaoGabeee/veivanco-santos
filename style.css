@@ -1,7 +1,8 @@
 :root {
   --cor-primaria: #0e233d;
+  --cor-primaria-hover: #1a3559;
   --cor-secundaria: #13e288;
-  --cor-secundaria-hover: #11c074;
+  --cor-secundaria-hover: #0fc576;
   --cor-texto: #fff;
   --cor-gradiente-1: #0e233d;
   --cor-gradiente-2: #13e288;

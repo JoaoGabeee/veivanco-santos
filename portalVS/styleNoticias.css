@@ -71,3 +71,25 @@
 .fade-img {
   transition: opacity 0.5s ease-in-out;
 }
+
+.noticia-card {
+  transition: all 0.3s ease;
+}
+
+.noticia-card.expandido .card {
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.card-text {
+  transition: max-height 0.5s ease;
+  overflow: hidden;
+}
+
+.btn-fonte-original{
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto);
+}
+
+.btn-fonte-original:hover {
+  background-color: var(--cor-primaria-hover);
+}
