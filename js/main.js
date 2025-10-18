@@ -1,9 +1,9 @@
 //troca de imagens
 document.addEventListener("DOMContentLoaded", function () {
   const imagens = [
-    "../imagens/contador1.png",
-    "../imagens/contador2.png",
-    "../imagens/contador3.png"
+    "assents/imgContadores/contador1.png",
+    "assents/imgContadores/contador2.png",
+    "assents/imgContadores/contador3.png"
   ];
 
   const precache = [];
@@ -125,10 +125,3 @@ function fecharModal(overlay, modal) {
   setTimeout(() => overlay.remove(), 400);
 }
 
-//Botão do menu hamburguer 
-const btn = document.getElementById('menu-btn');
-const menuIcon = btn.querySelector('.menu-icon');
-
-btn.addEventListener('click', () => {
-  menuIcon.classList.toggle('active');
-});

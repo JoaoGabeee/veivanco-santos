@@ -10,16 +10,16 @@ const feeds = [
 ];
 
 const imagensLocais = [
-  "imagens/imagem1.jpeg",
-  "imagens/imagem2.jpeg",
-  "imagens/imagem3.jpeg",
-  "imagens/imagem4.jpg",
-  "imagens/imagem5.jpg",
-  "imagens/imagem6.jpg",
-  "imagens/imagem7.jpg",
-  "imagens/imagem8.jpg",
-  "imagens/imagem9.jpg",
-  "imagens/imagem10.jpg",
+  "assents/imgNoticias/imagem1.jpeg",
+  "assents/imgNoticias/imagem2.jpeg",
+  "assents/imgNoticias/imagem4.jpg",
+  "assents/imgNoticias/imagem5.jpg",
+  "assents/imgNoticias/imagem3.jpeg",
+  "assents/imgNoticias/imagem6.jpg",
+  "assents/imgNoticias/imagem7.jpg",
+  "assents/imgNoticias/imagem8.jpg",
+  "assents/imgNoticias/imagem9.jpg",
+  "assents/imgNoticias/imagem10.jpg",
 ];
 
 const imagensUsadas = new Set();
@@ -133,7 +133,6 @@ function addCard(item) {
 function toggleExpandirSuave(card, texto, descCurta, descCompleta, botao, linkOriginal) {
   const expandido = card.classList.contains('expandido');
 
-  // Colapsa todos os outros
   document.querySelectorAll('.noticia-card.expandido').forEach(c => {
     c.classList.remove('expandido');
     c.style.flex = '';
@@ -142,7 +141,6 @@ function toggleExpandirSuave(card, texto, descCurta, descCompleta, botao, linkOr
     const b = c.querySelector('.btn-expandir');
     if (b) b.textContent = 'Ler mais';
 
-    // Remove botão da fonte original se existir
     const btnFonte = c.querySelector('.btn-fonte-original');
     if (btnFonte) btnFonte.remove();
   });
@@ -155,13 +153,12 @@ function toggleExpandirSuave(card, texto, descCurta, descCompleta, botao, linkOr
     texto.style.maxHeight = texto.scrollHeight + 'px';
     if (botao) botao.textContent = 'Ler menos';
 
-    // Criar botão da fonte original
     const btnFonte = document.createElement('a');
     btnFonte.href = linkOriginal;
     btnFonte.target = '_blank';
     btnFonte.textContent = 'Ver fonte original';
     btnFonte.className = 'btn btn-secondary mt-2 btn-fonte-original';
-    // Adiciona depois do botão expandir
+  
     botao.parentNode.appendChild(btnFonte);
 
     card.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -172,7 +169,6 @@ function toggleExpandirSuave(card, texto, descCurta, descCompleta, botao, linkOr
     texto.style.maxHeight = '4.5em';
     if (botao) botao.textContent = 'Ler mais';
 
-    // Remove botão da fonte original
     const btnFonte = card.querySelector('.btn-fonte-original');
     if (btnFonte) btnFonte.remove();
   }
@@ -187,7 +183,6 @@ function renderizarNoticias(termoBusca = "") {
   estaBuscando = !!termo;
 
   if (estaBuscando) {
-    // Busca ativa: mostra resultados e "outras notícias" não relacionadas
     const noticiasFiltradas = todasNoticias.filter(noticia => {
       const titulo = (noticia.title || '').toLowerCase();
       const descricao = (noticia.description || noticia.content || '').toLowerCase();
@@ -199,7 +194,6 @@ function renderizarNoticias(termoBusca = "") {
       return !titulo.includes(termo) && !descricao.includes(termo);
     });
 
-    // Resultados da busca
     if (noticiasFiltradas.length > 0) {
       noticiasFiltradas.forEach(addCard);
     } else {
@@ -209,7 +203,6 @@ function renderizarNoticias(termoBusca = "") {
       feedContainer.appendChild(aviso);
     }
 
-    // Outras notícias (apenas se houver)
     if (outrasNoticias.length > 0) {
       const titulo = document.createElement('h3');
       titulo.textContent = 'Outras notícias';
@@ -217,11 +210,10 @@ function renderizarNoticias(termoBusca = "") {
       feedContainer.appendChild(titulo);
       outrasNoticias.forEach(addCard);
     }
-    // Não mostra botão "ler mais" nem paginação na busca
+
     return;
   }
 
-  // Exibição padrão: paginação
   const noticias = todasNoticias.slice(noticiasExibidas, noticiasExibidas + noticiasPorPagina);
   noticias.forEach(addCard);
   noticiasExibidas += noticias.length;
@@ -260,7 +252,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const inputBusca = document.getElementById('busca-noticia');
   if (inputBusca) {
     inputBusca.addEventListener('input', function () {
-      // Se o campo estiver vazio, resetar paginação
       if (!this.value.trim()) {
         noticiasExibidas = 0;
       }
