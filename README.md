@@ -25,12 +25,12 @@ O objetivo do projeto é apresentar os serviços contábeis oferecidos e facilit
 ## Como executar
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/JoaoGabee/veivanco-santos.git
+   git clone https://github.com/joaogcristo/veivanco-santos.git
 2. Abra o arquivo index.html
 
 ## OU
 1. Copiar a url
    ```bash
-   https://joaogabeee.github.io/veivanco-santos/
+   https://joaogcristo.github.io/veivanco-santos/
 3. Colar no navegador
 
